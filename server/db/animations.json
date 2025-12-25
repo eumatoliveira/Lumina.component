@@ -1,0 +1,967 @@
+[
+  {
+    "id": "anim-001",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Fade Enter Animation",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 25,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.3s",
+      "easing": "ease-out",
+      "description": "Basic fade-in animation on mount using initial and animate props.",
+      "code": "<motion.article initial={{ opacity: 0 }} animate={{ opacity: 1 }} />"
+    }
+  },
+  {
+    "id": "anim-002",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Slide Up Fade",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 30,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "y": { "from": 20, "to": 0 },
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.5s",
+      "easing": "spring",
+      "description": "Element fades in while sliding up from below.",
+      "code": "<motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} />"
+    }
+  },
+  {
+    "id": "anim-003",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.button",
+    "animation_type": "Hover Scale",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 20,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileHover",
+      "properties": {
+        "scale": { "from": 1, "to": 1.1 }
+      },
+      "duration": "spring",
+      "easing": "spring-physics",
+      "description": "Button scales up on hover with spring animation.",
+      "code": "<motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />"
+    }
+  },
+  {
+    "id": "anim-004",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Exit Animation",
+    "tech_detected": ["Framer Motion", "React", "AnimatePresence"],
+    "complexity_score": 40,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "unmount",
+      "properties": {
+        "opacity": { "from": 1, "to": 0 }
+      },
+      "duration": "0.3s",
+      "easing": "ease-in",
+      "description": "Element fades out when removed from DOM using AnimatePresence.",
+      "code": "<AnimatePresence>{isVisible && <motion.div key=\"modal\" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />}</AnimatePresence>"
+    }
+  },
+  {
+    "id": "anim-005",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Keyframe Animation",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 45,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "animate",
+      "properties": {
+        "x": { "keyframes": [0, 100, 0] }
+      },
+      "duration": "1s",
+      "easing": "ease-in-out",
+      "description": "Element animates through multiple keyframe positions.",
+      "code": "<motion.div animate={{ x: [0, 100, 0] }} />"
+    }
+  },
+  {
+    "id": "anim-006",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.ul",
+    "animation_type": "Stagger Children",
+    "tech_detected": ["Framer Motion", "React", "Variants"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileInView",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 },
+        "staggerChildren": 0.1
+      },
+      "duration": "0.5s",
+      "easing": "ease-out",
+      "description": "List items animate in sequence with staggered delay using variants.",
+      "code": "const list = { visible: { opacity: 1, transition: { delayChildren: 0.3, staggerChildren: 0.1 } }, hidden: { opacity: 0 } }"
+    }
+  },
+  {
+    "id": "anim-007",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Layout Animation",
+    "tech_detected": ["Framer Motion", "React", "Layout"],
+    "complexity_score": 60,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "layout-change",
+      "properties": {
+        "position": "automatic",
+        "size": "automatic"
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Automatically animate layout changes like position and size.",
+      "code": "<motion.div layout />"
+    }
+  },
+  {
+    "id": "anim-008",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Shared Element Transition",
+    "tech_detected": ["Framer Motion", "React", "layoutId"],
+    "complexity_score": 75,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "state-change",
+      "properties": {
+        "layout": "shared",
+        "crossfade": true
+      },
+      "duration": "0.3s",
+      "easing": "spring",
+      "description": "Magic motion effect - two elements share the same layoutId and animate between them.",
+      "code": "isSelected && <motion.div layoutId=\"underline\" />"
+    }
+  },
+  {
+    "id": "anim-009",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Scroll-Triggered Animation",
+    "tech_detected": ["Framer Motion", "React", "whileInView"],
+    "complexity_score": 35,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "viewport-enter",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.6s",
+      "easing": "ease-out",
+      "description": "Element animates when it enters the viewport.",
+      "code": "<motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} />"
+    }
+  },
+  {
+    "id": "anim-010",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Scroll-Linked Progress",
+    "tech_detected": ["Framer Motion", "React", "useScroll"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "scroll",
+      "properties": {
+        "scaleX": "scrollYProgress"
+      },
+      "duration": "instant",
+      "easing": "linked",
+      "description": "Elements scaleX is directly linked to scroll progress for progress bars.",
+      "code": "const { scrollYProgress } = useScroll(); return <motion.div style={{ scaleX: scrollYProgress }} />"
+    }
+  },
+  {
+    "id": "anim-011",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.path",
+    "animation_type": "SVG Line Drawing",
+    "tech_detected": ["Framer Motion", "React", "SVG"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "pathLength": { "from": 0, "to": 1 }
+      },
+      "duration": "2s",
+      "easing": "ease-in-out",
+      "description": "Hand-drawn line animation effect using pathLength.",
+      "code": "<motion.path d={d} initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} />"
+    }
+  },
+  {
+    "id": "anim-012",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.path",
+    "animation_type": "Path Morphing",
+    "tech_detected": ["Framer Motion", "React", "SVG"],
+    "complexity_score": 70,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "animate",
+      "properties": {
+        "d": "path-morph"
+      },
+      "duration": "0.5s",
+      "easing": "spring",
+      "description": "Animate between two SVG path shapes.",
+      "code": "<motion.path d=\"M 0,0 l 0,10 l 10,10\" animate={{ d: \"M 0,0 l 10,0 l 10,10\" }} />"
+    }
+  },
+  {
+    "id": "anim-013",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Spring Animation",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 40,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "animate",
+      "properties": {
+        "x": { "from": 0, "to": 100 }
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "spring": { "stiffness": 100, "damping": 10 },
+      "description": "Physics-based spring animation with stiffness and damping.",
+      "code": "<motion.div animate={{ x: 100 }} transition={{ type: \"spring\", stiffness: 100, damping: 10 }} />"
+    }
+  },
+  {
+    "id": "anim-014",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Drag Gesture",
+    "tech_detected": ["Framer Motion", "React", "Drag"],
+    "complexity_score": 45,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "drag",
+      "properties": {
+        "x": "drag-x",
+        "y": "drag-y"
+      },
+      "duration": "instant",
+      "easing": "spring",
+      "description": "Element can be dragged with physics-based constraints.",
+      "code": "<motion.div drag dragConstraints={{ left: -100, right: 100 }} whileDrag={{ scale: 1.1 }} />"
+    }
+  },
+  {
+    "id": "anim-015",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.section",
+    "animation_type": "Blur Filter Animation",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 30,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "filter": { "from": "blur(10px)", "to": "none" }
+      },
+      "duration": "0.6s",
+      "easing": "ease-out",
+      "description": "Element animates from blurred to sharp.",
+      "code": "<motion.section initial={{ filter: \"blur(10px)\" }} animate={{ filter: \"none\" }} />"
+    }
+  },
+  {
+    "id": "anim-016",
+    "source_url": "CSS Animation Stack",
+    "element_selector": ".fade-up",
+    "animation_type": "CSS Fade Translate",
+    "tech_detected": ["CSS", "JavaScript"],
+    "complexity_score": 15,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "class-toggle",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 },
+        "transform": { "from": "translateY(20px)", "to": "translateY(0)" }
+      },
+      "duration": "0.6s",
+      "easing": "ease",
+      "description": "GPU-accelerated CSS transition with fade and translate.",
+      "code": ".fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; } .fade-up.show { opacity: 1; transform: translateY(0); }"
+    }
+  },
+  {
+    "id": "anim-017",
+    "source_url": "CSS Animation Stack",
+    "element_selector": ".loader",
+    "animation_type": "CSS Pulse Keyframes",
+    "tech_detected": ["CSS Keyframes"],
+    "complexity_score": 20,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "infinite-loop",
+      "properties": {
+        "transform": { "keyframes": ["scale(1)", "scale(1.1)", "scale(1)"] },
+        "opacity": { "keyframes": [0.6, 1, 0.6] }
+      },
+      "duration": "1.5s",
+      "easing": "ease-in-out",
+      "description": "Pulsing loading animation with CSS keyframes.",
+      "code": "@keyframes pulse { 0% { transform: scale(1); opacity: .6; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: .6; } } .loader { animation: pulse 1.5s infinite ease-in-out; }"
+    }
+  },
+  {
+    "id": "anim-018",
+    "source_url": "GSAP Animation Stack",
+    "element_selector": ".title",
+    "animation_type": "GSAP Timeline",
+    "tech_detected": ["GSAP", "JavaScript"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "y": { "from": 40, "to": 0 },
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.6s",
+      "easing": "power2.out",
+      "description": "GSAP timeline animation with sequenced elements.",
+      "code": "const tl = gsap.timeline(); tl.from(\".title\", { y: 40, opacity: 0, duration: 0.6 }).from(\".subtitle\", { y: 20, opacity: 0 }, \"-=0.3\");"
+    }
+  },
+  {
+    "id": "anim-019",
+    "source_url": "GSAP Animation Stack",
+    "element_selector": ".reveal",
+    "animation_type": "GSAP ScrollTrigger",
+    "tech_detected": ["GSAP", "ScrollTrigger", "JavaScript"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "scroll",
+      "properties": {
+        "y": { "from": 60, "to": 0 },
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "scrub",
+      "easing": "scroll-linked",
+      "description": "Scroll-driven reveal animation with GSAP ScrollTrigger.",
+      "code": "gsap.from(\".reveal\", { opacity: 0, y: 60, scrollTrigger: { trigger: \".reveal\", start: \"top 80%\", end: \"bottom 60%\", scrub: true } });"
+    }
+  },
+  {
+    "id": "anim-020",
+    "source_url": "Anime.js Animation Stack",
+    "element_selector": ".box",
+    "animation_type": "Anime.js Stagger",
+    "tech_detected": ["Anime.js", "JavaScript"],
+    "complexity_score": 40,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "translateX": { "from": 0, "to": 250 },
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.8s",
+      "easing": "easeOutExpo",
+      "description": "Anime.js staggered animation for multiple elements.",
+      "code": "anime({ targets: \".box\", translateX: 250, opacity: [0, 1], duration: 800, easing: \"easeOutExpo\", delay: anime.stagger(100) });"
+    }
+  },
+  {
+    "id": "anim-021",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Infinite Rotation",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 25,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "animate",
+      "properties": {
+        "rotate": { "from": 0, "to": 360 }
+      },
+      "duration": "2s",
+      "easing": "linear",
+      "description": "Infinite rotation animation with repeat Infinity.",
+      "code": "<motion.div animate={{ rotate: 180 }} transition={{ repeat: Infinity, duration: 2 }} />"
+    }
+  },
+  {
+    "id": "anim-022",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Repeat Reverse",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 30,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "animate",
+      "properties": {
+        "rotate": { "from": 0, "to": 180 }
+      },
+      "duration": "2s",
+      "easing": "ease-in-out",
+      "description": "Animation that alternates between forward and backwards playback.",
+      "code": "<motion.div animate={{ rotate: 180 }} transition={{ repeat: 1, repeatType: \"reverse\", duration: 2 }} />"
+    }
+  },
+  {
+    "id": "anim-023",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.button",
+    "animation_type": "Tap Scale Rotate",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 25,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileTap",
+      "properties": {
+        "scale": { "from": 1, "to": 0.9 },
+        "rotate": { "from": 0, "to": 3 }
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Button scales down and rotates slightly on tap.",
+      "code": "<motion.button whileTap={{ scale: 0.9, rotate: 3 }} />"
+    }
+  },
+  {
+    "id": "anim-024",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.a",
+    "animation_type": "Focus Scale",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 20,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileFocus",
+      "properties": {
+        "scale": { "from": 1, "to": 1.2 }
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Element scales up when receiving keyboard focus.",
+      "code": "<motion.a whileFocus={{ scale: 1.2 }} href=\"#\" />"
+    }
+  },
+  {
+    "id": "anim-025",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Drag Scale Color",
+    "tech_detected": ["Framer Motion", "React", "Drag"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileDrag",
+      "properties": {
+        "scale": { "from": 1, "to": 1.2 },
+        "backgroundColor": { "from": "#fff", "to": "#f00" }
+      },
+      "duration": "instant",
+      "easing": "spring",
+      "description": "Element changes color and scale while being dragged.",
+      "code": "<motion.div drag whileDrag={{ scale: 1.2, backgroundColor: \"#f00\" }} />"
+    }
+  },
+  {
+    "id": "anim-026",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "useScroll",
+    "animation_type": "Scroll Direction Detection",
+    "tech_detected": ["Framer Motion", "useScroll", "useMotionValueEvent"],
+    "complexity_score": 45,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "scroll",
+      "properties": {
+        "scrollDirection": "up/down"
+      },
+      "duration": "instant",
+      "easing": "none",
+      "description": "Detect scroll direction for sticky header animations.",
+      "code": "const { scrollY } = useScroll(); useMotionValueEvent(scrollY, \"change\", (current) => { const diff = current - scrollY.getPrevious(); setScrollDirection(diff > 0 ? \"down\" : \"up\"); })"
+    }
+  },
+  {
+    "id": "anim-027",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "useScroll",
+    "animation_type": "Element Scroll Container",
+    "tech_detected": ["Framer Motion", "useScroll"],
+    "complexity_score": 40,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "container-scroll",
+      "properties": {
+        "scrollX": "tracked"
+      },
+      "duration": "linked",
+      "easing": "scroll-linked",
+      "description": "Track scroll position of a specific scrollable container.",
+      "code": "const carouselRef = useRef(null); const { scrollX } = useScroll({ container: carouselRef });"
+    }
+  },
+  {
+    "id": "anim-028",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "useScroll",
+    "animation_type": "Element Position Tracking",
+    "tech_detected": ["Framer Motion", "useScroll", "offset"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "element-enter",
+      "properties": {
+        "scrollYProgress": "0-1"
+      },
+      "duration": "linked",
+      "easing": "scroll-linked",
+      "description": "Track element progress as it enters from bottom and exits at top.",
+      "code": "const { scrollYProgress } = useScroll({ target: ref, offset: [\"start end\", \"end end\"] });"
+    }
+  },
+  {
+    "id": "anim-029",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "useAnimationFrame",
+    "animation_type": "Continuous Rotation",
+    "tech_detected": ["Framer Motion", "useAnimationFrame"],
+    "complexity_score": 35,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "frame",
+      "properties": {
+        "rotateY": "time-based"
+      },
+      "duration": "continuous",
+      "easing": "linear",
+      "description": "Rotate element continuously based on elapsed time.",
+      "code": "useAnimationFrame((time) => { ref.current.style.transform = `rotateY(${time}deg)` });"
+    }
+  },
+  {
+    "id": "anim-030",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.ul",
+    "animation_type": "Variants Parent Control",
+    "tech_detected": ["Framer Motion", "React", "Variants"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "beforeChildren",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.5s",
+      "easing": "ease-out",
+      "description": "Parent animates before children using when: beforeChildren.",
+      "code": "const list = { visible: { opacity: 1, transition: { when: \"beforeChildren\" } }, hidden: { opacity: 0 } }"
+    }
+  },
+  {
+    "id": "anim-031",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.ul",
+    "animation_type": "Stagger From Last",
+    "tech_detected": ["Framer Motion", "stagger"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "stagger-reverse",
+      "properties": {
+        "staggerChildren": 0.1
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Stagger children from last to first instead of first to last.",
+      "code": "const transition = { delayChildren: stagger(0.1, { from: \"last\" }) }"
+    }
+  },
+  {
+    "id": "anim-032",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.ul",
+    "animation_type": "Stagger From Center",
+    "tech_detected": ["Framer Motion", "stagger"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "stagger-center",
+      "properties": {
+        "staggerChildren": 0.1
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Stagger children from the center outwards.",
+      "code": "const transition = { delayChildren: stagger(0.1, { from: \"center\" }) }"
+    }
+  },
+  {
+    "id": "anim-033",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "Typewriter",
+    "animation_type": "Typewriter Effect",
+    "tech_detected": ["Motion+", "Typewriter"],
+    "complexity_score": 40,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "characters": "typed-one-by-one"
+      },
+      "duration": "variable",
+      "easing": "human-variance",
+      "description": "Natural typewriter animation with realistic typing speeds.",
+      "code": "<Typewriter>Hello world!</Typewriter>"
+    }
+  },
+  {
+    "id": "anim-034",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "Typewriter",
+    "animation_type": "Dynamic Typewriter",
+    "tech_detected": ["Motion+", "Typewriter"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "content-change",
+      "properties": {
+        "backspace": "word"
+      },
+      "duration": "variable",
+      "easing": "human-variance",
+      "description": "Typewriter with intelligent backspacing when content changes.",
+      "code": "<Typewriter backspace=\"word\">{text}</Typewriter>"
+    }
+  },
+  {
+    "id": "anim-035",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "AnimateNumber",
+    "animation_type": "Number Counter",
+    "tech_detected": ["Motion+", "AnimateNumber"],
+    "complexity_score": 35,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "value-change",
+      "properties": {
+        "number": "interpolated"
+      },
+      "duration": "0.5s",
+      "easing": "ease-out",
+      "description": "Animate between number values with locale-aware formatting.",
+      "code": "<AnimateNumber>300</AnimateNumber>"
+    }
+  },
+  {
+    "id": "anim-036",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "Carousel",
+    "animation_type": "Infinite Carousel",
+    "tech_detected": ["Motion+", "Carousel"],
+    "complexity_score": 60,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "drag/wheel",
+      "properties": {
+        "scroll": "infinite-loop"
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Performant infinite-scrolling carousel with snap points.",
+      "code": "<Carousel items={items} loop={true} />"
+    }
+  },
+  {
+    "id": "anim-037",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "Carousel",
+    "animation_type": "Vertical Carousel",
+    "tech_detected": ["Motion+", "Carousel"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "drag/wheel",
+      "properties": {
+        "axis": "y"
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Vertical scrolling carousel.",
+      "code": "<Carousel items={items} axis=\"y\" />"
+    }
+  },
+  {
+    "id": "anim-038",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "Cursor",
+    "animation_type": "Custom Cursor",
+    "tech_detected": ["Motion+", "Cursor"],
+    "complexity_score": 45,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mouse-move",
+      "properties": {
+        "position": "mouse-tracking",
+        "state": "context-aware"
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Custom cursor that adapts when hovering links or buttons.",
+      "code": "<Cursor />"
+    }
+  },
+  {
+    "id": "anim-039",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "Cursor",
+    "animation_type": "Magnetic Cursor",
+    "tech_detected": ["Motion+", "Cursor"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "element-proximity",
+      "properties": {
+        "snap": "magnetic"
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Cursor that snaps to interactive elements on hover.",
+      "code": "<Cursor magnetic />"
+    }
+  },
+  {
+    "id": "anim-040",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "scroll()",
+    "animation_type": "Scroll Callback",
+    "tech_detected": ["Motion", "scroll"],
+    "complexity_score": 35,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "scroll",
+      "properties": {
+        "progress": "0-1"
+      },
+      "duration": "linked",
+      "easing": "scroll-linked",
+      "description": "Execute callback function as scroll progress changes.",
+      "code": "scroll(progress => console.log(progress))"
+    }
+  },
+  {
+    "id": "anim-041",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Delay Animation",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 20,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount-delayed",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.3s",
+      "easing": "ease-out",
+      "description": "Animation with configurable delay before starting.",
+      "code": "animate(element, { filter: \"blur(10px)\" }, { delay: 0.3 })"
+    }
+  },
+  {
+    "id": "anim-042",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Negative Delay",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 30,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "mount",
+      "properties": {
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "1s",
+      "easing": "ease-out",
+      "description": "Start animation partway through using negative delay.",
+      "code": "animate(element, { opacity: 1 }, { delay: -0.5 })"
+    }
+  },
+  {
+    "id": "anim-043",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Repeat With Delay",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 30,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "animate",
+      "properties": {
+        "rotate": { "from": 0, "to": 180 }
+      },
+      "duration": "1s",
+      "easing": "ease-in-out",
+      "description": "Repeating animation with pause between repetitions.",
+      "code": "<motion.div animate={{ rotate: 180 }} transition={{ repeat: Infinity, repeatDelay: 1 }} />"
+    }
+  },
+  {
+    "id": "anim-044",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.svg",
+    "animation_type": "SVG Filter Hover",
+    "tech_detected": ["Framer Motion", "SVG", "Variants"],
+    "complexity_score": 50,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileHover",
+      "properties": {
+        "stdDeviation": { "from": 0, "to": 2 }
+      },
+      "duration": "0.3s",
+      "easing": "ease-out",
+      "description": "Animate SVG filter on parent hover using variants.",
+      "code": "<motion.svg whileHover=\"hover\"><filter><motion.feGaussianBlur stdDeviation={0} variants={{ hover: { stdDeviation: 2 } }} /></filter></motion.svg>"
+    }
+  },
+  {
+    "id": "anim-045",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "AnimatePresence",
+    "animation_type": "Slideshow Key Change",
+    "tech_detected": ["Framer Motion", "AnimatePresence"],
+    "complexity_score": 55,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "key-change",
+      "properties": {
+        "x": { "from": 300, "to": 0 },
+        "opacity": { "from": 0, "to": 1 }
+      },
+      "duration": "0.5s",
+      "easing": "spring",
+      "description": "Create slideshow by changing component key.",
+      "code": "<AnimatePresence><motion.img key={image.src} initial={{ x: 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }} /></AnimatePresence>"
+    }
+  },
+  {
+    "id": "anim-046",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "useIsPresent",
+    "animation_type": "Presence State",
+    "tech_detected": ["Framer Motion", "useIsPresent"],
+    "complexity_score": 35,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "presence-change",
+      "properties": {
+        "isPresent": "boolean"
+      },
+      "duration": "n/a",
+      "easing": "n/a",
+      "description": "Access presence state to change content during exit.",
+      "code": "const isPresent = useIsPresent(); return isPresent ? \"Here!\" : \"Exiting...\""
+    }
+  },
+  {
+    "id": "anim-047",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "AnimatePresence",
+    "animation_type": "Custom Exit Data",
+    "tech_detected": ["Framer Motion", "AnimatePresence", "usePresenceData"],
+    "complexity_score": 45,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "exit",
+      "properties": {
+        "custom": "swipeDirection"
+      },
+      "duration": "0.3s",
+      "easing": "spring",
+      "description": "Pass custom data to exiting components via AnimatePresence.",
+      "code": "<AnimatePresence custom={swipeDirection}><Slide key={activeSlideId}></AnimatePresence>"
+    }
+  },
+  {
+    "id": "anim-048",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.button",
+    "animation_type": "Hover Tap Combined",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 30,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "whileHover+whileTap",
+      "properties": {
+        "scale": { "hover": 1.2, "tap": 0.9 }
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Combined hover and tap gestures with different states.",
+      "code": "<motion.button whileHover={{ scale: 1.2, transition: { duration: 1 } }} whileTap={{ scale: 0.9 }} />"
+    }
+  },
+  {
+    "id": "anim-049",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.button",
+    "animation_type": "Gesture Variants",
+    "tech_detected": ["Framer Motion", "React", "Variants"],
+    "complexity_score": 45,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "gesture",
+      "properties": {
+        "variants": "tap/hover"
+      },
+      "duration": "spring",
+      "easing": "spring",
+      "description": "Use variant labels for gesture animations with child propagation.",
+      "code": "<motion.button whileTap=\"tap\" whileHover=\"hover\" variants={buttonVariants}><svg><motion.path variants={iconVariants} /></svg></motion.button>"
+    }
+  },
+  {
+    "id": "anim-050",
+    "source_url": "Motion/React Documentation",
+    "element_selector": "motion.div",
+    "animation_type": "Event Propagation Stop",
+    "tech_detected": ["Framer Motion", "React"],
+    "complexity_score": 35,
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "extracted_pattern": {
+      "trigger": "capture",
+      "properties": {
+        "propagation": "stopped"
+      },
+      "duration": "n/a",
+      "easing": "n/a",
+      "description": "Stop gesture events from propagating to parent motion components.",
+      "code": "<motion.div whileTap={{ scale: 2 }}><button onPointerDownCapture={e => e.stopPropagation()} /></motion.div>"
+    }
+  }
+]

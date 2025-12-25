@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --background: 0 0% 100%;       /* #FFFFFF */
+    --foreground: 222.2 84% 4.9%;  /* #020817 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+
+    /* Antigravity particle colors */
+    --antigravity-color: #3b82f6;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --nav-menu-color: #000;
+  }
+ 
+  .dark {
+    /* Dark Theme */
+    --background: 222.2 84% 4.9%;   /* #020817 */
+    --foreground: 210 40% 98%;      /* #f8fafc */
+
+    --card: 217.2 32.6% 10%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217.2 91.2% 59.8%;
+
+    /* Antigravity particle colors for dark */
+    --antigravity-color: #FF9FFC;
+    --nav-bg: rgba(15, 23, 42, 0.85);
+    --nav-menu-color: #fff;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Light mode specific overrides */
+.light {
+  --tw-bg-opacity: 1;
+}
+
+/* Smooth transitions for theme switching */
+.light section,
+.dark section,
+.light div,
+.dark div {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Light mode gradient adjustments */
+.light .bg-gradient-to-br.from-slate-900 {
+  background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0, #f1f5f9);
+}
+
+.light .bg-gradient-to-b.from-slate-950 {
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9, #f8fafc);
+}
+
+.light .bg-slate-800\/50 {
+  background-color: rgba(241, 245, 249, 0.8);
+}
+
+.light .bg-slate-800\/30 {
+  background-color: rgba(226, 232, 240, 0.5);
+}
+
+.light .border-slate-700\/50 {
+  border-color: rgba(203, 213, 225, 0.5);
+}
+
+.light .text-slate-400 {
+  color: #64748b;
+}
+
+.light .text-white {
+  color: #1e293b;
+}
+
+.light .text-white\/90 {
+  color: rgba(30, 41, 59, 0.9);
+}
